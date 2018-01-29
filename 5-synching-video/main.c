@@ -647,14 +647,15 @@ int stream_component_open(VideoState *is, int stream_index) {
                                     is->video_st->codec->pix_fmt,
                                     is->video_st->codec->width,
                                     is->video_st->codec->height,
-                                    PIX_FMT_YUV420P,
+                                    AV_PIX_FMT_YUV420P,
                                     SWS_BILINEAR,
                                     NULL,
                                     NULL,
                                     NULL
                             );
             codecCtx->get_buffer2 = our_get_buffer;
-            codecCtx->release_buffer = our_release_buffer;
+            //TODO 高清粗这里
+            //codecCtx->release_buffer = our_release_buffer;
             break;
         default:
             break;
